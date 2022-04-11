@@ -1056,6 +1056,10 @@
 		width: 3em;
 	}
 
+	table.propdef th {
+		width: 8em;
+	}
+
 	/* For when values are extra-complex and need formatting for readability */
 	table td.pre {
 		white-space: pre-wrap;
