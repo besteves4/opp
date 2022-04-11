@@ -355,6 +355,11 @@
                       <bdi class="secno">3.1.1.2 </bdi>Data Sharing Entity
                     </a>
                   </li>
+                  <li class="tocline">
+                    <a class="tocxref" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x3-1-1-3-data-intermediary">
+                      <bdi class="secno">3.1.1.3 </bdi>Data Intermediary
+                    </a>
+                  </li>
                 </ol>
               </li>
             </ol>
@@ -703,7 +708,10 @@
         <bdi class="secno">3.1.1 </bdi>Classes
         <a class="self-link" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x3-1-1-parties-classes"></a>
       </h4>
-      <p><a href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x3-1-1-1-group">Group</a> |
+      <p>
+        <a href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x3-1-1-1-group">Group</a> |
+        <a href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x3-1-1-2-data-sharing-entity">Data Sharing Entity</a> |
+        <a href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x3-1-1-3-data-intermediary">Data Intermediary</a> |
         <a href="">...</a> |
       </p>
       <h4 id="x3-1-1-1-group">
@@ -716,16 +724,51 @@
             <tr><th>Definition:</th> <td>Collection of individuals who may or may not share a common purpose or intention; or a formal organization with formal goals and formal organizational rules.</td></tr>
             <!-- <tr><th>Subclass of:</th> <td><a href="http://www.w3.org/ns/odrl/2/Party">odrl:Party</a></td></tr> -->
             <tr><th>Instance of:</th> <td><a href="http://www.w3.org/ns/odrl/2/Party">odrl:Party</a></td></tr>
-            <!-- <tr><th>Legal source:</th> <td><cite></td></tr> -->
-            <tr><th>Ethical source:</th> 
-              <td>
-                [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-copp-1984" title="Copp (1984)">copp-84</a></cite>],
-                [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-french-1984" title="French (1984)">french-84</a></cite>],
-                [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-newman-2004" title="Newman (2004)">newman-04</a></cite>]
-              </td>
-            </tr>
+            <!-- <tr><th>Legal source:</th> <td></td></tr> -->
+            <tr><th>Ethical source:</th> <td>
+              [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-copp-1984" title="Copp (1984)">copp-84</a></cite>],
+              [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-french-1984" title="French (1984)">french-84</a></cite>],
+              [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-newman-2004" title="Newman (2004)">newman-04</a></cite>]
+            </td></tr>
             <!-- <tr><th>Related terms:</th> <td><a href=""></a></td></tr> -->
             <tr><th>Usage examples:</th> <td><a href="">Family Pod</a></td></tr>
+          </tbody>
+      </table>
+      <h4 id="x3-1-1-2-data-sharing-entity">
+        <bdi class="secno">3.1.1.2 </bdi>Data Sharing Entity
+        <a class="self-link" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x3-1-1-2-data-sharing-entity"></a>
+      </h4>
+      <table class="def propdef">
+          <tbody>
+            <tr><th>Term:</th> <td><a href="https://w3id.org/ppop/DataSharingEntity">Data Sharing Entity</a></td></tr>
+            <tr><th>Definition:</th> <td style="color: red;">A legal or natural person that is either DataSharingServiceProvider or a DataTrustProvider</td></tr>
+            <tr><th>Subclass of:</th> <td><a href="https://w3id.org/dpv#LegalEntity">dpv:LegalEntity</a></td></tr>
+            <!-- <tr><th>Instance of:</th> <td><a href="http://www.w3.org/ns/odrl/2/Party">odrl:Party</a></td></tr> -->
+            <tr><th>Legal source:</th> <td>
+              [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-dga" title="Data Governance Act">DGA Art.9</a></cite>],
+              [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-eidas" title="eIDAS">eIDAS Art.3.19</a></cite>]
+            </td></tr>
+            <!-- <tr><th>Ethical source:</th> <td> </td></tr> -->
+            <!-- <tr><th>Related terms:</th> <td><a href=""></a></td></tr> -->
+            <tr><th>Usage examples:</th> <td><a href=""></a></td></tr>
+          </tbody>
+      </table>
+      <h4 id="x3-1-1-3-data-intermediary">
+        <bdi class="secno">3.1.1.2 </bdi>Data Intermediary
+        <a class="self-link" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x3-1-1-3-data-intermediary"></a>
+      </h4>
+      <table class="def propdef">
+          <tbody>
+            <tr><th>Term:</th> <td><a href="https://w3id.org/ppop/DataIntermediary">Data Intermediary</a></td></tr>
+            <tr><th>Definition:</th> <td>A legal person that engages in intermediation services between data holders which are legal persons and potential data users, including making available the technical or other means to enable such services</td></tr>
+            <tr><th>Subclass of:</th> <td><a href="https://w3id.org/ppop/DataSharingEntity">ppop:DataSharingEntity</a></td></tr>
+            <!-- <tr><th>Instance of:</th> <td><a href="http://www.w3.org/ns/odrl/2/Party">odrl:Party</a></td></tr> -->
+            <tr><th>Legal source:</th> <td>
+              [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-dga" title="Data Governance Act">DGA Art.9.1</a></cite>]
+            </td></tr>
+            <!-- <tr><th>Ethical source:</th> <td> </td></tr> -->
+            <!-- <tr><th>Related terms:</th> <td><a href=""></a></td></tr> -->
+            <tr><th>Usage examples:</th> <td><a href=""></a></td></tr>
           </tbody>
       </table>
 
@@ -783,6 +826,20 @@
     <dd>
       Dwight G. Newman (2004). Collective Interests and Collective Rights. <i>The American Journal of Jurisprudence</i> 49(1), 127–163. DOI:
       <a href="https://doi.org/10.1093/ajj/49.1.127">10.1093/ajj/49.1.127</a>
+    </dd>
+    <dt id="bib-dga">[DGA]</dt>
+    <dd>
+      Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL on European data governance (Data Governance Act). URL:
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020PC0767">
+        https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52020PC0767
+      </a>
+    </dd>
+    <dt id="bib-eidas">[eIDAS]</dt>
+    <dd>
+      Proposal for a REGULATION OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL amending Regulation (EU) No 910/2014 as regards establishing a framework for a European Digital Identity. URL:
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52021PC0281">
+        https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52021PC0281
+      </a>
     </dd>
     <dt id="bib-acl">[acl]</dt>
     <dd>
