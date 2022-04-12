@@ -805,7 +805,7 @@
               [<cite><a class="bibref" data-link-type="biblio" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#bib-newman-2004" title="Newman (2004)">newman-04</a></cite>]
             </td></tr>
             <!-- <tr><th>Related terms:</th> <td><a href=""></a></td></tr> -->
-            <tr><th>Usage examples:</th> <td><a href="">Family Pod</a></td></tr>
+            <tr><th>Usage examples:</th> <td><a href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-1-family-pod">Family Pod</a></td></tr>
           </tbody>
       </table>
       <h4 id="x3-1-1-2-data-sharing-entity">
@@ -860,7 +860,7 @@
             </td></tr>
             <!-- <tr><th>Ethical source:</th> <td> </td></tr> -->
             <!-- <tr><th>Related terms:</th> <td><a href=""></a></td></tr> -->
-            <tr><th>Usage examples:</th> <td><a href="">Family Pod</a></td></tr>
+            <tr><th>Usage examples:</th> <td><a href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-1-family-pod">Family Pod</a></td></tr>
           </tbody>
       </table>
       <h4 id="x3-1-1-5-data-altruism-organisation">
@@ -896,7 +896,7 @@
             </td></tr>
             <!-- <tr><th>Ethical source:</th> <td> </td></tr> -->
             <!-- <tr><th>Related terms:</th> <td><a href=""></a></td></tr> -->
-            <tr><th>Usage examples:</th> <td><a href="">Family Pod</a></td></tr>
+            <tr><th>Usage examples:</th> <td><a href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-1-family-pod">Family Pod</a></td></tr>
           </tbody>
       </table>
       <h4 id="x3-1-1-7-data-user">
@@ -1026,20 +1026,48 @@
       <bdi class="secno">4. </bdi>Examples
       <a class="self-link" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#examples"></a>
     </h2>
-    <h3 id="x4-1-user-preference-1">
-      <bdi class="secno">4.1 </bdi>Example ...
+    <h3 id="x4-1-family-pod">
+      <bdi class="secno">4.1 </bdi>Family Pod
       <a class="self-link respec-offending-element" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#styles" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document"></a>
-      <a class="self-link" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-1-user-preference-1"></a>
+      <a class="self-link" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-1-family-pod"></a>
     </h3>
     <p>
-      Example description ...
+      Family with 2 parents and 2 children allow the processing of their 
+      medical health data for the purpose of research and development
+      and have a data sharing service provider as a data intermediary
     </p>
     <div class="example"><div class="example-title marker"><span>Example 4.1</span></div>
       <pre id="ex41" class="hljs" aria-busy="false" aria-live="polite">
         <code class="hljs json" aria-busy="false">
-          :example-4-1 a odrl:Policy ;
-            odrl:profile ppop: ;
-            ...
+          ex:family-pod a odrl:Policy ;
+              odrl:permission [
+                  odrl:assigner ex:family-pool ;
+                  odrl:action dpv:Processing ;
+                  odrl:target dpv:MedicalHealth ;
+                  odrl:constraint ex:RD-purpose, ex:tech 
+          ] .
+          ex:RD-purpose a odrl:Constraint ;
+              odrl:leftOperand dpv:Purpose ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand dpv:ResearchAndDevelopment .
+          ex:tech a odrl:Constraint ;
+              odrl:leftOperand dpv:Technology ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand ex:PersonalDataStore .
+          ex:PersonalDataStore a :PersonalDataStore ;
+              dpv:hasLocation <https://pod-provider/familyA/> .
+          ex:family-pool a :Group ;
+              :hasVoluntaryMembership ex:Parent1, ex:Parent2 ;
+          :hasDataIntermediary ex:DataIntermediary ;
+          :hasNonVoluntaryMembership ex:Child1, ex:Child2 .
+          ex:DataIntermediary a :DataSharingServiceProvider .
+          ex:Parent1 a :DataHolder, dpv:DataSubject ;
+              :isDataHolderFor ex:Child1, ex:Child2, ex:Parent1 .
+          ex:Parent2 a :DataHolder, dpv:DataSubject ;
+              :isDataHolderFor ex:Child1, ex:Child2, ex:Parent2 .
+          ex:Child1 a dpv:Child .
+          ex:Child2 a dpv:Child .
+
         </code>
       </pre>
     </div>
