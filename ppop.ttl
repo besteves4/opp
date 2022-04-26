@@ -1,0 +1,229 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/opp/Accuracy> a owl:Class ;
+    rdfs:label "Accuracy"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/OrganisationDuty> ;
+    skos:definition "Ensure that system generates correct output/outcome. (up to date data: legal)"^^xsd:string ;
+    skos:related <http://www.semanticweb.org/ranasaniei/ontologies/2021/5/OTAIA#AccuracyQuality> .
+
+<https://w3id.org/opp/Auditability> a owl:Class ;
+    rdfs:label "Auditability"^^xsd:string ;
+    rdfs:comment "property of technologies; open source software"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/OrganisationDuty> ;
+    skos:definition "operationalise conformity assessment"^^xsd:string ;
+    skos:related <http://www.semanticweb.org/ranasaniei/ontologies/2021/5/OTAIA#Auditability> .
+
+<https://w3id.org/opp/DataAltruismOrganisation> a owl:Class ;
+    rdfs:label "Data Altruism Organisation"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/DataIntermediary> ;
+    skos:definition "a legal person that performs the activities related to data altruism"^^xsd:string .
+
+<https://w3id.org/opp/DataHolder> a owl:Class ;
+    rdfs:label "Data Holder"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/DataSharingEntity> ;
+    skos:definition "a legal person or data subject who has the right to grant / share access to data under its control"^^xsd:string ;
+    skos:example "1.0"^^xsd:string .
+
+<https://w3id.org/opp/DataSharingServiceProvider> a owl:Class ;
+    rdfs:label "Data Sharing Service Provider"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/DataIntermediary> ;
+    skos:definition "a legal person that engages in intermediation services between data subjects that seek to make their personal data available and potential data users, including making available the technical or other means to enable such services, in the exercise of the rights provided in Regulation (EU) 2016/679"^^xsd:string ;
+    skos:example "1.0"^^xsd:string .
+
+<https://w3id.org/opp/DataTrustProvider> a owl:Class ;
+    rdfs:label "Data Trust Provider"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#LegalEntity> ;
+    skos:definition "a natural or a legal person who provides one or more trust services either as a qualified or as a non-qualified trust service provider"^^xsd:string .
+
+<https://w3id.org/opp/DataUser> a owl:Class ;
+    rdfs:label "Data User"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/DataSharingEntity> ;
+    skos:definition "a natural or legal person who has lawful access to data and is authorised to use it"^^xsd:string .
+
+<https://w3id.org/opp/Explainability> a owl:Class ;
+    rdfs:label "Explainability"^^xsd:string ;
+    rdfs:comment "property of technologies; of data processing"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/OrganisationDuty> ;
+    skos:definition "Secondary process in AI systems to prove that an otherwise unexplained decision can be justified on grounds of known facts and logical steps."^^xsd:string ;
+    skos:related <http://www.semanticweb.org/ranasaniei/ontologies/2021/5/OTAIA#Explainability> .
+
+<https://w3id.org/opp/Group> a owl:Class ;
+    rdfs:label "Group"^^xsd:string ;
+    rdfs:subClassOf odrl:Party ;
+    skos:definition "Collection of individuals who may or may not share a common purpose or intention; or a formal organization with formal goals and formal organizational rules."^^xsd:string ;
+    skos:example "1.0"^^xsd:string .
+
+<https://w3id.org/opp/IdentityWallet> a owl:Class ;
+    rdfs:label "Identity Wallet"^^xsd:string ;
+    rdfs:comment "submitted to DPV"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#PIMS> ;
+    skos:definition "service that allows the user to store identity data, credentials and attributes linked to her/his identity, to provide them to relying parties on request and to use them for authentication, online and offline, and to create qualified electronic signatures and seals"^^xsd:string .
+
+<https://w3id.org/opp/PIMS> a owl:Class ;
+    rdfs:label "Personal Information Management System"^^xsd:string ;
+    rdfs:comment "submitted to DPV"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#Technology> ;
+    skos:definition "system that helps to give individuals more control over their personal data by managing their personal data in secure, on-premises or online storage systems and sharing it when and with whomever they choose"^^xsd:string .
+
+<https://w3id.org/opp/PersonalDataStore> a owl:Class ;
+    rdfs:label "Personal Data Store"^^xsd:string ;
+    rdfs:comment "submitted to DPV"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#PIMS> ;
+    skos:definition "service that lets an individual store, manage and deploy their personal data"^^xsd:string .
+
+<https://w3id.org/opp/RightToAutonomy> a owl:Class ;
+    rdfs:label "Right to Autonomy"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#DataSubjectRight> ;
+    skos:definition "Empowering individuals (end-users) to be able to reflect on, deliberate on, and justify decisions made in interaction with an AI system."^^xsd:string ;
+    skos:related <https://krnlet.github.io/> .
+
+<https://w3id.org/opp/RightToDignity> a owl:Class ;
+    rdfs:label "Right to Dignity"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/GroupRight> .
+
+<https://w3id.org/opp/RightToGroupPrivacy> a owl:Class ;
+    rdfs:label "Right to Group Privacy"^^xsd:string ;
+    rdfs:comment "2) Where information is shared: in family groups: absolutely private information about the group is shared only between insiders but not with outsiders. Joint individual right to privacy is required to keep the shared information private;3) Where aggregated information is analysed: in non-voluntary groups: group right to privacy: This kind of group is identified by any feature (or combination) individuals have in common, which is represented as the result of applying an algorithm, or used in an algorithm decision. Right to privacy for these groups is defined as right to reasonable inferences."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/GroupRight> ;
+    skos:definition "Claim right: limit the potential privacy harms to a group itself by determining duty of others how to use information about a group responsibly// Power right: empower the group to exercise collective or democratically delegated control over its/their data."^^xsd:string .
+
+<https://w3id.org/opp/RightToNonDiscrimination> a owl:Class ;
+    rdfs:label "Right to Non-Discrimination"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/GroupRight> ;
+    skos:definition "Protect groups from the unfair and harmful use of group-related information."^^xsd:string .
+
+<https://w3id.org/opp/RightToPrivacy> a owl:Class ;
+    rdfs:label "Right to Privacy"^^xsd:string ;
+    rdfs:comment "Individuals (end-users) should have access to and control over their personal information. 1) Where information is collected: individual right to privacy: data subject should exercise control over their personal information."^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#DataSubjectRight> ;
+    skos:definition "Right to control personal information: data subject should exercise control over their personal information."^^xsd:string ;
+    skos:related <https://krnlet.github.io/> .
+
+<https://w3id.org/opp/RightToSecurity> a owl:Class ;
+    rdfs:label "Right to Security"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#DataSubjectRight> ;
+    skos:definition "Right to data protection?"^^xsd:string .
+
+<https://w3id.org/opp/SafeguardForAuditability> a owl:Class ;
+    rdfs:label "Safeguard for Auditability"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/SafeguardForTrustworthiness> ;
+    skos:definition "a structured process through which organisations and AI systems are assessed for consistency with relevant principles or norms."^^xsd:string .
+
+<https://w3id.org/opp/SafeguardForExplainability> a owl:Class ;
+    rdfs:label "Safeguard for Explainability"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/SafeguardForTrustworthiness> ;
+    skos:definition "Safeguards used to provide a formal, logical, or semantic explanation to ensure that the rationale behind a specific decisions or behaviour is communicated to (end-)users, and to make explicit and clarify the meaning of the content of the outcome."^^xsd:string .
+
+<https://w3id.org/opp/SafeguardForGeneralSafety> a owl:Class ;
+    rdfs:label "Safeguard for General Safety"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/SafeguardForTrustworthiness> ;
+    skos:definition "Precautionary measures to prevent vulnerabilities such as data polution, physical infrastructure, cyber security attacks, etc., to ensure the integrity and resilience of the AI system against potential attacks, to ensure public health against accidental release of hazardous biological agents"^^xsd:string ;
+    skos:related <http://www.semanticweb.org/ranasaniei/ontologies/2021/5/OTAIA#GeneralSafety> .
+
+<https://w3id.org/opp/SafeguardForPrivacy> a owl:Class ;
+    rdfs:label "Safeguard for Privacy"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/SafeguardForTrustworthiness> ;
+    skos:definition "Technical measures or tools for de-identification or anonymization of data."^^xsd:string .
+
+<https://w3id.org/opp/SafeguardForSecurity> a owl:Class ;
+    rdfs:label "Safeguard for Security"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/SafeguardForTrustworthiness> ;
+    skos:definition "Measures to authorized access"^^xsd:string .
+
+<https://w3id.org/opp/SafeguardForTraceability> a owl:Class ;
+    rdfs:label "Safeguard for Traceability"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/SafeguardForTrustworthiness> ;
+    skos:definition "‘Technical measures’ to trace all phases of algorithmic system design and development from data collection to selection, building model, and outcome of or decisions taken by algorithms."^^xsd:string .
+
+<https://w3id.org/opp/ServiceConditions> a owl:Class ;
+    rdfs:label "Service Conditions"^^xsd:string ;
+    rdfs:comment "Should reflect the transparency requirements of the DGA proposal"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/TransparencyMeasure> ;
+    skos:definition "Any piece of information provided to natural persons regarding the activity where their data is involved"^^xsd:string .
+
+<https://w3id.org/opp/StakeholderParticipation> a owl:Class ;
+    rdfs:label "Stakeholder Participation"^^xsd:string ;
+    rdfs:comment "can be connected with other safeguards"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/SafeguardToAvoidBias> ;
+    skos:definition "Diverse stakeholder participation is required to hear all voices and opinions throughout the production and use lifecycle."^^xsd:string ;
+    skos:related <http://www.semanticweb.org/ranasaniei/ontologies/2021/5/OTAIA#StakeholderParticipation> .
+
+<https://w3id.org/opp/Traceability> a owl:Class ;
+    rdfs:label "Traceability"^^xsd:string ;
+    rdfs:comment "traceability of data; data processing; entities"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/OrganisationDuty> ;
+    skos:definition "assign responsibilities and document decisions to enable follow-up"^^xsd:string ;
+    skos:related <http://www.semanticweb.org/ranasaniei/ontologies/2021/5/OTAIA#Traceability> .
+
+<https://w3id.org/opp/dpv:TechnicalOrganisationalMeasure> a owl:Class ;
+    rdfs:label "Technical Organisational Measure"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/Measure> ;
+    skos:definition "any measure to ensure data’s confidentiality, integrity, and availability"^^xsd:string .
+
+<https://w3id.org/opp/> a owl:Ontology ;
+    dcterms:abstract ""^^xsd:string ;
+    dcterms:created "2022-04-07"^^xsd:date ;
+    dcterms:creator "Andrés Chomczyk"^^xsd:string,
+        "Beatriz Esteves"^^xsd:string,
+        "Blessing Mutiro"^^xsd:string,
+        "Dave Lewis"^^xsd:string,
+        "Haleh Asgarinia"^^xsd:string ;
+    dcterms:description ""^^xsd:string ;
+    dcterms:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+    dcterms:title "Ontology of Privacy Paradigms"^^xsd:string ;
+    vann:preferredNamespacePrefix "apn:"^^xsd:string ;
+    vann:preferredNamespaceUri <https://w3id.org/opp/> ;
+    owl:versionInfo "0.1"^^xsd:float .
+
+<https://w3id.org/opp/Duty> a owl:Class ;
+    rdfs:label "Duty"^^xsd:string .
+
+<https://w3id.org/opp/SafeguardToAvoidBias> a owl:Class ;
+    rdfs:label "Safeguard to Avoid Bias"^^xsd:string ;
+    rdfs:comment "careful data selection process   MeasureToAvoidBias -> relatedTo -> Data / Processing / Technology"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/SafeguardForTrustworthiness> ;
+    skos:definition "Safeguards to avoid bias in data collection: safeguard to avoid underrepresenting or overrepresenting specific groups or samples in a dataset which "^^xsd:string ;
+    skos:related <http://www.semanticweb.org/ranasaniei/ontologies/2021/5/OTAIA#Bias> .
+
+<https://w3id.org/opp/TransparencyMeasure> a owl:Class ;
+    rdfs:label "Transparency Measure"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/Measure> ;
+    skos:definition "Measures to identify which information could or should be disclosed, which form of information might be most suitably made available; and the conditions of its accessibility."^^xsd:string .
+
+<https://w3id.org/opp/DataIntermediary> a owl:Class ;
+    rdfs:label "Data Intermediary"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/DataSharingEntity> ;
+    skos:definition "a legal person that engages in intermediation services between data holders which are legal persons and potential data users, including making available the technical or other means to enable such services"^^xsd:string .
+
+<https://w3id.org/opp/Measure> a owl:Class ;
+    rdfs:label "Measure"^^xsd:string ;
+    skos:definition "any action deployed by an entity involved in a data processing activity, due to the existence of a legal obligation, to guarantee and protect that the personal data involved shall not be affected in any way and, consequently, cause harm to the data subject"^^xsd:string .
+
+<https://w3id.org/opp/DataSharingEntity> a owl:Class ;
+    rdfs:label "Data Sharing Entity"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#LegalEntity> ;
+    skos:definition "a legal or natural person that is either DataSharingServiceProvider or a DataTrustProvider"^^xsd:string .
+
+<https://w3id.org/opp/GroupRight> a owl:Class ;
+    rdfs:label "Group Right"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#Right> ;
+    skos:definition "Rights are held by a group itself rather than by its members severally."^^xsd:string .
+
+<https://w3id.org/opp/OrganisationDuty> a owl:Class ;
+    rdfs:label "Duty of Organisation"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/opp/Duty> ;
+    skos:definition "Moral or legal duties correspond to data subject's rights."^^xsd:string .
+
+<https://w3id.org/opp/SafeguardForTrustworthiness> a owl:Class ;
+    rdfs:label "Safeguard for Trustworthiness"^^xsd:string ;
+    rdfs:subClassOf <https://w3id.org/dpv#Safeguard> ;
+    skos:definition """Trustworthy or reliable AI:\r
+Ensuring that organizations using AI, and individuals within those organizations are trustworthy.\r
+Measures to ensure that the AI technology itself is reliable.\r"""^^xsd:string .
+
