@@ -531,6 +531,14 @@
 		text-align: center;
 		border: 3px solid #444;
 	}
+
+	.table-subtitle {
+		background-color: rgb(211, 203, 203);
+		color: black;
+		font-size: smaller;
+		text-align: center;
+		border: 3px solid #444;
+	}
 	
 	.table-cell {
 		text-align: justify;
