@@ -1,0 +1,123 @@
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX oac: <https://w3id.org/oac/>
+PREFIX ppop: <https://w3id.org/ppop/>
+PREFIX dpv: <https://w3id.org/dpv#>
+PREFIX dpv-gdpr: <https://www.w3id.org/dpv/dpv-gdpr#>
+PREFIX dpv-pd: <http://www.w3id.org/dpv/dpv-pd#>
+
+PREFIX ex: <http://example.com/>
+
+ppop:privacyParadigmPolicyTemplate a odrl:Privacy ;
+    odrl:profile ppop:, oac: ;
+    odrl:uid <http://example.com/policy:2> ;
+    dc:modified "2022-01-01"^^xsd:date ;
+    dc:description "This policy covers..." ;
+    dc:issued "2017-01-01"^^xsd:date ;
+    dc:replaces <http://example.com/policy:1> ;
+    odrl:assigner ex:jointControllers ;
+    odrl:assignee [ a oac:DataSubject ] ;
+    odrl:permission [
+        ppop:accountableParty ex:controller-1 ;
+        odrl:target ex:personalIdentifiers ;
+        odrl:action [
+            rdf:value ex:PIprocessingActivities ;
+            odrl:refinement [
+                odrl:and ex:PIpurpose, ex:PIlegalBasis, ex:PIRecipients
+            ]
+        ] ;
+    ] ;
+    odrl:permission [
+        ppop:accountableParty ex:controller-2 ;
+        odrl:target ex:personalIdentifiers ;
+        odrl:action [
+            rdf:value ex:PIprocessingActivities ;
+            odrl:refinement [
+                odrl:and ex:PIpurpose, ex:PIlegalBasis, ex:PIRecipients
+            ]
+        ] ;
+    ] ;
+    odrl:obligation [
+        odrl:target [ a dpv-gdpr:A15 ; ppop:rightRequestMethod <http://example.com/companyA/rightOfAccess> ], 
+            [ a dpv-gdpr:A13 ], [ a dpv-gdpr:A14 ], [ a dpv-gdpr:A16 ], [ a dpv-gdpr:A17 ], [ a dpv-gdpr:A18 ],
+            [ a dpv-gdpr:A19 ], [ a dpv-gdpr:A20 ], [ a dpv-gdpr:A21 ], [ a dpv-gdpr:A22 ], [ a dpv-gdpr:A7-3 ],
+            [ a dpv-gdpr:A77 ] ;
+        odrl:action [
+            rdf:value ppop:realize ;
+            odrl:refinement [
+                odrl:leftOperand ppop:Measure ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand ppop:SafeguardForTrustworthiness
+            ]
+        ]    
+    ] ;
+    odrl:obligation [
+        odrl:target [ a ppop:Explainability ], [ a ppop:Traceability ], [ a ppop:Auditability ], [ a ppop:Accuracy ] ;
+        odrl:action [
+            rdf:value ppop:implement ;
+            odrl:refinement [
+                odrl:leftOperand ppop:Measure ;
+                odrl:operator odrl:isA ;
+                odrl:rightOperand ppop:SafeguardForTrustworthiness
+            ]
+        ]
+    ] .
+
+ex:jointControllers a oac:JointControllers ;
+    dpv:hasDataController ex:controller-1, ex:controller-2 .
+
+ex:controller-1 a oac:DataController ;
+    dpv:hasName "Controller name" ;
+    dpv:hasAddress "Controller address" ;
+    dpv:hasContact "Controller phone number", "Controller email" ;
+    dpv:hasDataProtectionOfficer [
+        a dpv:DataProtectionOfficer ;
+        dpv:hasName "DPO name" ;
+        dpv:hasAddress "DPO address" ;
+        dpv:hasContact "DPO phone number", "DPO email" ;
+    ] .
+
+ex:controller-2 a oac:DataController ;
+    dpv:hasName "Controller name" ;
+    dpv:hasAddress "Controller address" ;
+    dpv:hasContact "Controller phone number", "Controller email" ;
+    dpv:hasDataProtectionOfficer [
+        a dpv:DataProtectionOfficer ;
+        dpv:hasName "DPO name" ;
+        dpv:hasAddress "DPO address" ;
+        dpv:hasContact "DPO phone number", "DPO email" ;
+    ] .
+
+ex:personalIdentifiers a oac:PersonalData ;
+    dpv:hasPersonalData dpv-pd:Age, dpv-pd:Contact, dpv-pd:Dislike ;
+    dpv:hasDataSource <http://example.com/datasource:1> .
+
+ex:PIprocessingActivities  a oac:Processing ;
+    dpv:hasStorage [ a dpv:StorageLocation ; dpv:hasLocation "address location" ] ,
+            [ a dpv:StorageDuration ; dpv:hasDuration "time period"^^xsd:duration ] ,
+            [ a dpv:StorageDeletion ; dpv:hasTechnicalMeasure "measure used to delete" ] ;
+    ppop:hasDataTranferLegalBasis dpv-gdpr:DataTransferTool ;
+    ppop:automatedProcessing "true/false"^^xsd:boolean .
+
+ex:PIpurpose a odrl:Constraint ;
+    odrl:leftOperand oac:Purpose ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand dpv:Purpose .
+
+ex:PIlegalBasis a odrl:Constraint ;
+    odrl:leftOperand ppop:LegalBasis ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand ex:consent .
+
+ex:consent a dpv-gdpr:A6-1-a-explicit-consent ;
+    dpv:hasWithdrawalMethod "measure used to withdraw" .
+
+ex:PIRecipients a odrl:Constraint ;
+    odrl:leftOperand oac:Recipient ;
+    odrl:operator odrl:isA ;
+    odrl:rightOperand ex:dataProcessorA .
+
+ex:dataProcessorA a dpv:DataProcessor .
