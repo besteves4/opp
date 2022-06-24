@@ -686,6 +686,16 @@
               <bdi class="secno">4.1 </bdi>Family Pod
             </a>
           </li>
+          <li class="tocline">
+            <a class="tocxref" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-2">
+              <bdi class="secno">4.2 </bdi>
+            </a>
+          </li>
+          <li class="tocline">
+            <a class="tocxref" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-3-ml-asthma">
+              <bdi class="secno">4.3 </bdi>Asthma type classification
+            </a>
+          </li>
         </ol>
       </li>
       <li class="tocline">
@@ -2149,38 +2159,195 @@
     <div class="example"><div class="example-title marker"><span>Example 4.1</span></div>
       <pre id="ex41" class="hljs" aria-busy="false" aria-live="polite">
         <code class="hljs json" aria-busy="false">
-          ex:family-pod a odrl:Policy ;
+          ex:familyPod a odrl:Policy ;
+              odrl:profile ppop:, oac: ;
+              odrl:uid &#60;https://pod-provider/familyA/policy1> ;
+              dc:issued "2022-02-22" ;
               odrl:permission [
-                  odrl:assigner ex:family-pool ;
-                  odrl:action dpv:Processing ;
-                  odrl:target dpv:MedicalHealth ;
-                  odrl:constraint ex:RD-purpose, ex:tech 
-          ] .
-          ex:RD-purpose a odrl:Constraint ;
-              odrl:leftOperand dpv:Purpose ;
+                  odrl:assigner ex:familyPool ;
+                  odrl:target oac:MedicalHealth ;
+                  odrl:action oac:Read, oac:Write ;
+                  odrl:constraint ex:purpose
+              ] .
+
+          ex:familyPool a ppop:Group ;
+              ppop:hasDataIntermediary ex:dataIntermediary ;
+              ppop:hasVoluntaryMembership ex:parent1, ex:parent2 ;
+              ppop:hasNonVoluntaryMembership ex:child1, ex:child2 .
+          ex:dataIntermediary a ppop:DataSharingServiceProvider .
+          ex:parent1 a ppop:DataHolder, dpv:DataSubject ;
+              ppop:isDataHolderFor ex:child1, ex:child2, ex:parent1 .
+          ex:parent2 a ppop:DataHolder, dpv:DataSubject ;
+              ppop:isDataHolderFor ex:child1, ex:child2, ex:parent2 .
+          ex:child1 a dpv:Child .
+          ex:child2 a dpv:Child .
+
+          ex:purpose a odrl:Constraint ;
+              odrl:leftOperand oac:Purpose ;
               odrl:operator odrl:isA ;
               odrl:rightOperand dpv:ResearchAndDevelopment .
-          ex:tech a odrl:Constraint ;
-              odrl:leftOperand dpv:Technology ;
-              odrl:operator odrl:isA ;
-              odrl:rightOperand ex:PersonalDataStore .
-          ex:PersonalDataStore a :PersonalDataStore ;
-              dpv:hasLocation <https://pod-provider/familyA/> .
-          ex:family-pool a :Group ;
-              :hasVoluntaryMembership ex:Parent1, ex:Parent2 ;
-          :hasDataIntermediary ex:DataIntermediary ;
-          :hasNonVoluntaryMembership ex:Child1, ex:Child2 .
-          ex:DataIntermediary a :DataSharingServiceProvider .
-          ex:Parent1 a :DataHolder, dpv:DataSubject ;
-              :isDataHolderFor ex:Child1, ex:Child2, ex:Parent1 .
-          ex:Parent2 a :DataHolder, dpv:DataSubject ;
-              :isDataHolderFor ex:Child1, ex:Child2, ex:Parent2 .
-          ex:Child1 a dpv:Child .
-          ex:Child2 a dpv:Child .
+        </code>
+      </pre>
+    </div>
+
+    <h3 id="x4-2">
+      <bdi class="secno">4.2 </bdi>...
+      <a class="self-link respec-offending-element" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#styles" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document"></a>
+      <a class="self-link" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-2"></a>
+    </h3>
+    <p>
+      ...
+    </p>
+    <div class="example"><div class="example-title marker"><span>Example 4.2</span></div>
+      <pre id="ex42" class="hljs" aria-busy="false" aria-live="polite">
+        <code class="hljs json" aria-busy="false">
 
         </code>
       </pre>
     </div>
+
+    <h3 id="x4-3-ml-asthma">
+      <bdi class="secno">4.3 </bdi>Asthma type classification
+      <a class="self-link respec-offending-element" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#styles" title="Broken local reference found in document." id="respec-offender-broken-local-reference-found-in-document"></a>
+      <a class="self-link" aria-label="§" href="https://protect.oeg.fi.upm.es/ppop/ppop.html#x4-3-ml-asthma"></a>
+    </h3>
+    <p>
+      In order to develop a model to identify different phenotypes of asthma that will lead to the provision of appropriate medical treatment, 
+      a server in a hospital processes encrypted patient records stored in individuals Pods in conjunction with anonymised patient records from 
+      public health care systems. A validated model is developed in which a pattern between two variables, sex and BMI, is discovered and 
+      labelled as Type A asthma. The developed model is used to treat patients differently based on the type of asthma that has been identified. 
+      The discovered knowledge may result in discriminatory requests for the care of obese females.
+    </p>
+    <p>
+      To realize the task of the AI system, i.e., prediction of asthma phenotype, a new sample is sent to the AI model for performing inference. 
+      The patient whose data is sent to the AI model has already been informed that an AI system is being used to make a prediction based on 
+      what it was trained on. Following the transmission of data to the model, the result, which is the label of identified type of asthma, is 
+      sent to the diagnostic workstation for evaluation and assessment in terms of reliability and accuracy. Finally, the patient is aware of 
+      the type of asthma s/he has (because the clinician explains the outcome of an AI system in a simple language while complying with 
+      transparency measures), and the clinician takes the appropriate actions to treat the patient.
+    </p>
+    <p>
+      Example 4.3A presents patient A's data sharing policy related to its health record for the provision of asthma treatment, while 
+      example 4.3B presents the hospital's privacy policy regarding this particular service.
+    </p>
+    <div class="example"><div class="example-title marker"><span>Example 4.3A</span></div>
+      <pre id="ex43a" class="hljs" aria-busy="false" aria-live="polite">
+        <code class="hljs json" aria-busy="false">
+          ex:patientA-policy a odrl:Policy ;
+              odrl:profile ppop:, oac: ;
+              odrl:uid &#60;https://pod-provider/patientA/policy3> ;
+              dc:issued "2022-01-13" ;
+              odrl:assigner ex:patientA ;
+              odrl:target oac:HealthRecord ;
+              odrl:permission [ odrl:action oac:Use ; odrl:constraint ex:purpose ] ;
+              odrl:permission [ odrl:action oac:Store ; odrl:constraint ex:storage ] ;
+              odrl:obligation [
+                  odrl:action ex:discloseCodeImplementer ;
+                  ppop:accountableParty ex:codeImplementer ] .
+
+          ex:patientA a ppop:DataHolder, oac:DataSubject .
+
+          ex:AsthmaTreatment a dpv:Purpose ; skos:broaderTransitive dpv:ServiceProvision ;
+              rdfs:label "Provision of medical asthma treatment" .
+          ex:purpose odrl:leftOperand oac:Purpose ; 
+              odrl:operator odrl:isA ;
+              odrl:rightOperand ex:AsthmaTreatment .
+
+          ex:storage odrl:leftOperand ppop:ProcessingContext ; 
+              odrl:operator odrl:eq ;
+              odrl:rightOperand [ a ppop:PersonalDataStore ; 
+                  dpv:hasLocation &#60;https://pod-provider/patientA/> ] .
+
+          ex:discloseCodeImplementer a dpv:Processing ; skos:broaderTransitive dpv:Disclose ;
+              rdfs:label "Disclose the implementer of the predictive model" .
+          ex:codeImplementer a ppop:DataUser .
+        </code>
+      </pre>
+    </div>
+    <div class="example"><div class="example-title marker"><span>Example 4.3B</span></div>
+      <pre id="ex43b" class="hljs" aria-busy="false" aria-live="polite">
+        <code class="hljs json" aria-busy="false">
+          ex:pp-usecase-3 a odrl:Privacy ;
+              odrl:profile ppop:, oac: ;
+              odrl:uid &#60;https://hospitala.com/policy3> ;
+              dc:issued "2022-01-15" ;
+              odrl:assigner ex:controller ;
+              odrl:constraint ex:usedTechnology ;
+              odrl:permission [
+                  ppop:accountableParty ex:controller ;
+                  odrl:assignee ex:patients ;
+                  odrl:target oac:HealthRecord ;
+                  odrl:action [
+                      rdf:value oac:Use ;
+                      odrl:refinement [
+                          odrl:and ex:purpose, ex:legalBasis, ex:measure
+                      ]
+                  ]
+              ] ;
+              odrl:permission [
+                  odrl:target ex:anonymisedHealthRecords ;
+                  odrl:action [
+                      rdf:value oac:Use ;
+                      odrl:refinement ex:purpose
+                  ]
+              ] ;
+              odrl:obligation [
+                  odrl:target ppop:RightToNonDiscrimination ;
+                  odrl:action [
+                      rdf:value ppop:realize ;
+                      odrl:refinement [
+                          odrl:leftOperand opp:Measure ;
+                          odrl:operator odrl:isA ;
+                          odrl:rightOperand ppop:SafeguardForPrivacy
+                      ]
+                  ] 
+              ] .
+
+          ex:controller a oac:DataController, ppop:DataUser ;
+              dpv:hasName "Hospital A" ;
+              dpv:hasAddress "Hospital Street, City, Country" ;
+              dpv:hasContact "contact@hospitala.com" ;
+              dpv:hasDataProtectionOfficer [
+                  a dpv:DataProtectionOfficer ;
+                  dpv:hasContact "dpo@hospitala.com" ;
+              ] .
+
+          ex:Server a dpv:Technology ; 
+              skos:broaderTransitive dpv-tech:DataStorageTechnology, dpv-tech:DataManagementTechnology ;
+              rdfs:label "Server used to store and develop models with patients' data" .
+          ex:usedTechnology a odrl:Constraint ;
+              odrl:leftOperand ppop:Technology ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand ex:Server .
+
+          ex:patients a ppop:Group ;
+              ppop:hasNonVoluntaryMembership ex:patientA, ex:patientB, ex:patientC .
+
+          ex:purpose a odrl:Constraint ;
+              odrl:leftOperand oac:Purpose ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand ex:AsthmaTreatment .
+
+          ex:legalBasis a odrl:Constraint ;
+              odrl:leftOperand ppop:LegalBasis ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand ex:consent .
+          ex:consent a dpv-gdpr:A9-2-a ;
+              dpv:hasWithdrawalMethod "withdraw@hospitala.com" .
+
+          ex:measure a odrl:Constraint ;
+              odrl:leftOperand ppop:Measure ;
+              odrl:operator odrl:isA ;
+              odrl:rightOperand dpv:Encryption .
+
+          ex:AnonymisedHealthRecord a dpv:AnonymisedData, dpv:HealthRecord ;
+              rdfs:label "Anonymised health record data" .
+          ex:anonymisedHealthRecords a ex:AnonymisedHealthRecord ;
+              ppop:collectedfromOtherDataSources "public health care systems" .
+        </code>
+      </pre>
+    </div>
+
   </section>
 
 <section id="references" class="appendix">
